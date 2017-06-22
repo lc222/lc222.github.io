@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="NLP,文本分类,RNN,深度学习," />
 
 
 
@@ -111,16 +111,28 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="最近看了”Hierarchical Attention Network for Document Classification”一篇文章，也在网上找了一些资料结合理解，发现在此之前有篇文章跟他提出的模型架构基本相似，只不过不包含attention机制：“Document Modeling with Gated Recurrent Neural Networkfor Sentiment Classi">
+<meta name="keywords" content="NLP,文本分类,RNN,深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/06/12/hello-world/index.html">
+<meta property="og:title" content="Hierarchical Attention Network for Document Classification阅读笔记">
+<meta property="og:url" content="http://yoursite.com/2017/06/13/Hierarchical-Attention-Network-for-Document-Classification阅读笔记/index.html">
 <meta property="og:site_name" content="lc222">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-06-12T12:24:35.711Z">
+<meta property="og:description" content="最近看了”Hierarchical Attention Network for Document Classification”一篇文章，也在网上找了一些资料结合理解，发现在此之前有篇文章跟他提出的模型架构基本相似，只不过不包含attention机制：“Document Modeling with Gated Recurrent Neural Networkfor Sentiment Classi">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622194722200?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622200800977?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622203011437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622204502957?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622204654034?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622205131716?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622205151814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622205210008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622205227858?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170622210139394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-06-22T14:19:44.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Hierarchical Attention Network for Document Classification阅读笔记">
+<meta name="twitter:description" content="最近看了”Hierarchical Attention Network for Document Classification”一篇文章，也在网上找了一些资料结合理解，发现在此之前有篇文章跟他提出的模型架构基本相似，只不过不包含attention机制：“Document Modeling with Gated Recurrent Neural Networkfor Sentiment Classi">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170622194722200?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -148,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/12/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/13/Hierarchical-Attention-Network-for-Document-Classification阅读笔记/"/>
 
 
 
 
 
-  <title>Hello World | lc222</title>
+  <title>Hierarchical Attention Network for Document Classification阅读笔记 | lc222</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/Hierarchical-Attention-Network-for-Document-Classification阅读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lc222">
@@ -301,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Hierarchical Attention Network for Document Classification阅读笔记</h1>
         
 
         <div class="post-meta">
@@ -313,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T20:24:35+08:00">
-                2017-06-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T15:46:51+08:00">
+                2017-06-13
               </time>
             
 
@@ -324,6 +336,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -331,7 +376,7 @@
 
           
           
-             <span id="/2017/06/12/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2017/06/13/Hierarchical-Attention-Network-for-Document-Classification阅读笔记/" class="leancloud_visitors" data-flag-title="Hierarchical Attention Network for Document Classification阅读笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -359,15 +404,23 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>最近看了”Hierarchical Attention Network for Document Classification”一篇文章，也在网上找了一些资料结合理解，发现在此之前有篇文章跟他提出的模型架构基本相似，只不过不包含attention机制：“Document Modeling with Gated Recurrent Neural Network<br>for Sentiment Classification”，也就是说本篇论文是基于这篇论文作了一些改进的。所以这里主要结合两篇论文进行介绍文档的分层架构模型。</p>
+<h2 id="Non-Attention"><a href="#Non-Attention" class="headerlink" title="Non-Attention"></a>Non-Attention</h2><p>第一篇文章主要是使用两个神经网络分别建模句子和文档，采用一种<strong>自下向上的基于向量的文本表示模型</strong>。首先使用CNN/LSTM来建模句子表示，接下来使用双向GRU模型对句子表示进行编码得到文档表示，这里论文中提到在<strong>情感分类任务中，GRU往往比RNN效果要好</strong>。模型架构如下图所示：<br><img src="http://img.blog.csdn.net/20170622194722200?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>再上图中，词向量是从语料库中使用Word2vec模型训练出来的，保存在词嵌入矩阵中。然后使用CNN/LSTM模型学习句子表示，这里会将变长的句子表示成相同维度的向量，以消除句子长度不同所带来的不便。也就是说之后的GRU模型的输入是长度相同的句子向量。<br>卷积模型如下图所示，filter的宽度分别取1，2，3来编码unigrams，bigrams和trigrams的语义信息。最后使用一个Average层捕获全局信息并转化为固定长度的输出向量。<br><img src="http://img.blog.csdn.net/20170622200800977?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来进行文本层面建模，使用GRU模型，输入是变长的句子向量，输出固定长度的文本向量，这里会对最后每个单元的输出向量进行取平均操作，虽然会忽略句子顺序的信息，但是相对来说较为简单方便，如下图所示，其中GNN代表GRU的一个基础计算单元：<br><img src="http://img.blog.csdn.net/20170622203011437?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="With-Attention-HAN模型"><a href="#With-Attention-HAN模型" class="headerlink" title="With-Attention  HAN模型"></a>With-Attention  HAN模型</h2><p>接下来我们介绍一下本篇文章的模型架构，其实主要的思想和上面的差不多，也是分层构建只不过加上了两个Attention层，用于分别对句子和文档中的单词、句子的重要性进行建模。其主要思想是，首先考虑文档的分层结构：单词构成句子，句子构成文档，所以建模时也分这两部分进行。其次，不同的单词和句子具有不同的信息量，不能单纯的统一对待所以引入Attention机制。而且引入Attention机制除了提高模型的精确度之外还可以进行单词、句子重要性的分析和可视化，让我们对文本分类的内部有一定了解。模型主要可以分为下面四个部分，如下图所示：</p>
+<ol>
+<li>a word sequence encoder,</li>
+<li>a word-level attention layer,</li>
+<li>a sentence encoder</li>
+<li>a sentence-level attention layer.</li>
+</ol>
+<p><img src="http://img.blog.csdn.net/20170622204502957?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">、<br>这里对Attention机制进行一个补充介绍，可以参考论文“FEED-FORWARD NETWORKS WITH ATTENTION CAN SOLVE SOME LONG -TERM MEMORY PROBLEMS”里面的插图：<br><img src="http://img.blog.csdn.net/20170622204654034?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这里的word sequence encoder也是使用的双向GRU模型，与上篇文章不同。无聊的堆砌一下公式，四个部分分别对应下面四个：</p>
+<ol>
+<li><strong>Word Encoder</strong>：<img src="http://img.blog.csdn.net/20170622205131716?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li><strong>Word Attention</strong>：<img src="http://img.blog.csdn.net/20170622205151814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li><strong>Sentence Encoder</strong>：<img src="http://img.blog.csdn.net/20170622205210008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li><strong>Sentence Attention</strong>：<img src="http://img.blog.csdn.net/20170622205227858?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这里不进行过多的解释，主要针对Attention部分说一下，结合上图，我们会发现ui是使用一个简单的神经网络对hi的隐层表示，然后α是其softmax之后的结果，然后使用α对hi进行加权计算得到最终的输出向量即可。总结如下图：<br><img src="http://img.blog.csdn.net/20170622210139394?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbGl1Y2hvbmdl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>最后是一个文本分类层，其实就是一个简单的softmax，然后目标函数使用负对数似然函数。</li>
+</ol>
+<p>好了，介绍完模型架构，接下俩就是仿真实现了，争取下周搞出来~~</p>
 
       
     </div>
@@ -416,6 +469,18 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+            <a href="/tags/文本分类/" rel="tag"># 文本分类</a>
+          
+            <a href="/tags/RNN/" rel="tag"># RNN</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+        </div>
+      
 
       
       
@@ -425,15 +490,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/13/第一篇博客-使用hexo-github创建属于自己的博客/" rel="next" title="使用hexo+github创建属于自己的博客">
+                <i class="fa fa-chevron-left"></i> 使用hexo+github创建属于自己的博客
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/13/第一篇博客-使用hexo-github创建属于自己的博客/" rel="prev" title="使用hexo+github创建属于自己的博客">
-                使用hexo+github创建属于自己的博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Non-Attention"><span class="nav-number">1.</span> <span class="nav-text">Non-Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#With-Attention-HAN模型"><span class="nav-number">2.</span> <span class="nav-text">With-Attention  HAN模型</span></a></li></ol></div>
             
 
           </div>
